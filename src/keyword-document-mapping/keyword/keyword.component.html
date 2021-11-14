@@ -1,0 +1,34 @@
+<div class="input-group">
+  <input class="form-control form-control-lg" type="text" [formControl]="keywordInput" #keywordSearchBox
+    placeholder="Type to search keyword..." [ngbTypeahead]="search" [inputFormatter]="formatter"
+    [resultFormatter]="formatter" (selectItem)="selectedItem($event)" (keyup)="clear()" aria-describedby="edit-btn" />
+  <button type="button" id="edit-btn" class="btn btn-outline-primary btn-sm" (click)="onClickEditBtn()"
+    *ngIf="!onAdd && !onEdit && selectedKeyword">
+    <i class="bi-pencil-square"></i>
+    Edit Keyword
+  </button>
+</div>
+
+<div class="buttons">
+  <button type="button" class="btn btn-primary btn-sm" (click)="onClickAddBtn()" *ngIf="!onAdd && !onEdit">
+    <i class="bi-plus-square"></i>
+    Add Keyword
+  </button>
+
+  <div *ngIf="onAdd || onEdit">
+    <button type="button" class="btn btn-primary btn-sm" (click)="onSave()" 
+      [disabled]="unchangeOrEmptyInputValue()">
+      <i class="bi-check-circle-fill"></i>
+      Save Keyword
+    </button>
+    <button type="button" class="btn btn-danger btn-sm float-end" (click)="onCancel()">
+      <i class="bi-x-circle-fill"></i>
+      Cancel
+    </button>
+  </div>
+
+  <button type="button" class="btn btn-danger btn-sm float-end" (click)="onDelete()" *ngIf="!onAdd && !onEdit && selectedKeyword">
+    <i class="bi-trash-fill"></i>
+    Delete Keyword
+  </button>
+</div>

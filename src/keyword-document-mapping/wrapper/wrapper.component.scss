@@ -1,0 +1,18 @@
+.container {
+    padding: 1rem 5rem;
+
+    .section {
+        margin-top: 2rem;
+    }
+
+    datalist::after {
+        background-color: white;
+    }
+
+    button>i {
+        width: 32px;
+        height: 32px;
+        color: white;
+        padding-right: 0.5rem;
+    }
+}

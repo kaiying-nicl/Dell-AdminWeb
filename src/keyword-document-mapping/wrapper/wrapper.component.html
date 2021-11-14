@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="section">
+    <app-keyword (selectKeywordEvent)="selectKeyword($event)">
+    </app-keyword>
+  </div>
+
+  <div class="section">
+    <app-document-table [selectedKeyword]="selectedKeyword">
+    </app-document-table>
+  </div>
